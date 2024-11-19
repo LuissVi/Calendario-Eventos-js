@@ -1,20 +1,56 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-.calendario{
+
+body {
+    background-color: #f4f4f9;
+    font-family: 'Roboto', sans-serif;
+}
+
+.calendario {
     width: 1000px;
     margin: auto;
 }
-table{
+
+table {
     border-collapse: collapse;
     width: 100%;
+    table-layout: fixed;
+    background-color: #ffffff;
 }
-th{
-    border: black 1px solid;
+
+th {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #4a90e2;
+    border: #cccccc 1px solid;
+    height: 2rem;
+    color: #ffffff;
 }
-td{
-    border: black 1px solid;
+
+td {
+    position: relative;
+    font-family: 'Roboto', sans-serif;
+    border: #cccccc 1px solid;
     text-align: center;
+    height: 6rem;
+    color: #333333;
+}
+.divNros{
+    width: 1.2rem;
+    background-color: #e7e7ea;
+    border-radius: 6px;
+    position: absolute;
+    top: 0;
+}
+
+td:nth-child(6),
+/* Sábado */
+td:nth-child(7) {
+    /* Domingo */
+    background-color: #ffebeb;
+    /* Fondo coral claro */
+    color: #ff6f61;
+    /* Texto coral */
 }

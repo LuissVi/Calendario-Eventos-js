@@ -17,14 +17,14 @@ function crearCalendario() {
     //rellenando diasSemana
     let primerDia = new Date(anio, mes, 1).getDay();
     let totalDias = new Date(anio, mes + 1, 0).getDate();
-    primerDia-=1;
+   
     //evitamos que salga -1
-    if(primerDia==-1){
-        primerDia=6;
+    if(primerDia===0){
+        primerDia=7;
     }
     //celdas vacias
     let filas=document.createElement("tr")
-    for (let i = 0; i < primerDia; i++) {
+    for (let i = 0; i < primerDia-1; i++) {
        let td=document.createElement("td");
        filas.appendChild(td);
     }
@@ -32,24 +32,27 @@ function crearCalendario() {
     //todas las celdas
     for (let dia = 1; dia <= totalDias; dia++) {
         let td=document.createElement("td");
-        td.textContent=dia;
+        let divNros=document.createElement("div");
+        divNros.classList.add("divNros");
+        td.appendChild(divNros);
+        divNros.textContent=dia;
         filas.appendChild(td);
         if(filas.children.length===7){
             tabla.appendChild(filas);
             filas=document.createElement("tr");
         }
+        if(dia==new Date().getDate()){
+            divNros.style.color="#ff6f61";
+        }
         //colo a fin de semana
         let finde=filas.children.length;
         if(finde===0||finde===6){
-            td.style.background="lightblue";
-        }
+            td.style.background="#ffebeb";
+        }  
     }
     if(filas.children.length>0){
         tabla.appendChild(filas);
     }
-    
-   
-    
 
     calendario.appendChild(tabla);
     console.log(primerDia);
