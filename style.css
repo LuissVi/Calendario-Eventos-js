@@ -1,0 +1,20 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.calendario{
+    width: 1000px;
+    margin: auto;
+}
+table{
+    border-collapse: collapse;
+    width: 100%;
+}
+th{
+    border: black 1px solid;
+}
+td{
+    border: black 1px solid;
+    text-align: center;
+}
