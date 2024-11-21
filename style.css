@@ -36,8 +36,10 @@ td {
     text-align: center;
     height: 6rem;
     color: #333333;
+    padding: 2px;
 }
-.divNros{
+
+.divNros {
     width: 1.2rem;
     background-color: #e7e7ea;
     border-radius: 6px;
@@ -53,4 +55,31 @@ td:nth-child(7) {
     /* Fondo coral claro */
     color: #ff6f61;
     /* Texto coral */
+}
+
+h2 {
+    position: absolute;
+    width: 98%;
+    font-size: 0.8rem;
+    margin-bottom: 0.1rem;
+    border-radius: 5px;
+}
+
+.divContenedorColores {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    /* Una sola columna */
+    grid-gap: 1px;
+    /* Espaciado entre los elementos */
+    position: relative;
+}
+
+.divcolor {
+    height: 10px;
+    width: 100%;
+    /* Ajusta el ancho de los divs */
+    border-radius: 5px;
+    position: absolute;
+    
 }
