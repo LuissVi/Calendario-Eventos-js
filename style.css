@@ -1,3 +1,7 @@
+
+
+
+
 * {
     margin: 0;
     padding: 0;
@@ -17,6 +21,7 @@ body {
 table {
     border-collapse: collapse;
     width: 100%;
+    border-collapse: collapse;
     table-layout: fixed;
     background-color: #ffffff;
 }
@@ -30,13 +35,14 @@ th {
 }
 
 td {
+    
     position: relative;
     font-family: 'Roboto', sans-serif;
     border: #cccccc 1px solid;
     text-align: center;
     height: 6rem;
     color: #333333;
-    padding: 2px;
+    padding: 5px;
 }
 
 .divNros {
@@ -57,12 +63,14 @@ td:nth-child(7) {
     /* Texto coral */
 }
 
-h2 {
-    position: absolute;
+.titulo {
+   position: absolute;
     width: 98%;
     font-size: 0.8rem;
-    margin-bottom: 0.1rem;
+    margin-top: 1rem;
+    margin-bottom: 5px;
     border-radius: 5px;
+    z-index: 100;
 }
 
 .divContenedorColores {
@@ -80,6 +88,31 @@ h2 {
     width: 100%;
     /* Ajusta el ancho de los divs */
     border-radius: 5px;
-    position: absolute;
+    position:relative;
     
 }
+.div-eventos{
+    margin-top: 5px;
+    display: none;
+    position: absolute;
+    width: 100%;
+    
+}
+.titulo:hover + .div-eventos{
+    font-size: 0.7rem;
+    position: relative;
+   
+    width: 100%;
+    left: 0;
+    top: 0;
+    padding: 3px;
+    display: inline;
+   
+    background-color: rgba(255, 255, 255, 0.8);
+    transition: opacity 0.8s ease, transform 1s ease;
+    transform: translateY(-10px);
+    z-index:100;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
+}
+
+

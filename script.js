@@ -71,11 +71,13 @@ document.addEventListener('DOMContentLoaded', function () {
     }).then(data => {
         //console.log(data);
         crearCalendario(data);
-    })
+
+    });
 })
 
 let posicionesGlobales = {};
 let posicionesGlobales2 = {};
+
 //crear function para eventos
 function nodoEvento(dia, data) {
     let nodo = [];
@@ -84,6 +86,10 @@ function nodoEvento(dia, data) {
     let fechaFin;
     let divContenedor = document.createElement("div");
     divContenedor.classList.add("divContenedorColores");
+
+    divContenedor_h2_divEvento=document.createElement("div");
+    divContenedor_h2_divEvento.classList.add("divContenedor_h2_divEvento");
+
     for (let i = 0; i < data.length; i++) {
         fechaInicio = new Date(data[i].fechaAlta);
         fechaFin = new Date(data[i].fechaFinalizacion);
@@ -91,42 +97,66 @@ function nodoEvento(dia, data) {
         fechaInicio.setHours(0, 0, 0, 0);
         fechaFin.setHours(0, 0, 0, 0);
         if (fecha.getTime() == fechaInicio.getTime()) {
-           
-            let div = document.createElement("div");
-            div.classList.add("div-evento");
+            let divEvento = document.createElement("div");
+            
+            divEvento.classList.add("div-eventos");
+            divEvento.style.backgroundColor = data[i].color;
             let titulo = document.createElement("h2");
+            titulo.classList.add('titulo');
             titulo.style.backgroundColor = data[i].color;
-            let eventoId2 = `evento_${i}`;
-            if (!posicionesGlobales[eventoId2]) {
-                posicionesGlobales[eventoId2] = Object.keys(posicionesGlobales).length + 1;
-            }
-            if (!posicionesGlobales[data[i].titulo]) {
-                posicionesGlobales[data[i].titulo] = Object.keys(posicionesGlobales).length + 1;
-            }
-            let posicionIndex2 = posicionesGlobales[eventoId2];
-            titulo.style.marginTop = `${(posicionIndex2 -4) * 8}px`; // Separación vertical fija
+
+            //completar datos de json al div
+            let alta = document.createElement("p");
+            alta.textContent = `Fecha de inicio: ${data[i].fechaAlta}`;
+            divEvento.appendChild(alta);
+
+            let fin = document.createElement("p");
+            fin.textContent = `Finalización: ${data[i].fechaFinalizacion}`;
+            divEvento.appendChild(fin);
+
+            let cliente = document.createElement("p");
+            cliente.textContent = `Cliente: ${data[i].cliente}`;
+            divEvento.appendChild(cliente);
+
+            let contacto = document.createElement("p");
+            contacto.textContent = `Contacto: ${data[i].contacto}`;
+            divEvento.appendChild(contacto);
+            //console.log(p);
+            
+
+             let eventoId2 = `evento_${i}`;
+            // console.log(eventoId2);
+             if (!posicionesGlobales2[eventoId2]) {
+                posicionesGlobales2[eventoId2] = Object.keys(posicionesGlobales2).length + 1;
+             }
+             if (!posicionesGlobales2[data[i].titulo]) {
+                 posicionesGlobales2[data[i].titulo] = Object.keys(posicionesGlobales2).length + 1;
+             }
+             let posicionIndex2 = posicionesGlobales2[eventoId2];
+             titulo.style.marginTop = `${(posicionIndex2 - 4) * 8}px`; // Separación vertical fija
             titulo.textContent = data[i].titulo;
-            nodo.push(titulo);
+            
+            divContenedor_h2_divEvento.appendChild(titulo);
+            divContenedor_h2_divEvento.appendChild(divEvento);
+            nodo.push(divContenedor_h2_divEvento);
+            
 
         }
         else if (fecha.getTime() > fechaInicio.getTime() && fecha.getTime() <= fechaFin.getTime()) {
             let eventoId = `evento_${i}`;
-
             // Asignar una posición fija al evento
-            if (!posicionesGlobales[eventoId]) {
-                posicionesGlobales[eventoId] = Object.keys(posicionesGlobales).length + 1;
-            }
-
+             if (!posicionesGlobales[eventoId]) {
+                 posicionesGlobales[eventoId] = Object.keys(posicionesGlobales).length + 1;
+             }
             let divcolor = document.createElement("div");
             divcolor.classList.add("divcolor");
             divcolor.style.backgroundColor = data[i].color;
-
             // Aplicar posición fija basada en el índice del evento
-            if (!posicionesGlobales[data[i].titulo]) {
-                posicionesGlobales[data[i].titulo] = Object.keys(posicionesGlobales).length + 1;
-            }
-            let posicionIndex = posicionesGlobales[eventoId];
-            divcolor.style.marginTop = `${(posicionIndex - 4) * 8}px`; // Separación vertical fija
+             if (!posicionesGlobales[data[i].titulo]) {
+                 posicionesGlobales[data[i].titulo] = Object.keys(posicionesGlobales).length + 1;
+             }
+             let posicionIndex = posicionesGlobales[eventoId];
+         divcolor.style.marginTop = `${(posicionIndex -4) * 8}px`; // Separación vertical fija
 
             divContenedor.appendChild(divcolor);
             nodo.push(divContenedor);
@@ -138,4 +168,5 @@ function nodoEvento(dia, data) {
     // }
 
     return nodo;
+
 }

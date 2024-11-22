@@ -31,5 +31,11 @@
         "cliente": "Empresa ABC",
         "contacto": "Sergio",
         "color":"rgba(0,0,155,0.4)"
-    }
+    },
+    {"fechaAlta": "2024-11-20",
+        "fechaFinalizacion": "2024-11-27",
+        "titulo": "prueba vista",
+        "cliente": "Empresa ABC",
+        "contacto": "Sergio",
+        "color":"rgba(0,165,155,0.4)"}
 ]
