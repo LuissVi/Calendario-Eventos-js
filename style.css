@@ -5,7 +5,7 @@
 }
 
 body {
-    background-color: #f4f4f9;
+    background-color: #cccccc;
     font-family: 'Roboto', sans-serif;
 }
 
@@ -53,4 +53,25 @@ td:nth-child(7) {
     /* Fondo coral claro */
     color: #ff6f61;
     /* Texto coral */
+}
+.divTitulos{
+    padding: 12px;
+    height: 100%;
+   display: flex;
+   flex-direction: column;
+}
+
+.titulo{  
+    margin: 3px auto;
+    width: 95%;
+    font-size: 0.7rem;
+    border-radius: 5px;
+}
+
+.divColor{
+    padding: 0;
+    margin:3px auto;
+   height: 13px;
+   width: 95%;
+   border-radius: 5px;
 }

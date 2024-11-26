@@ -1,0 +1,68 @@
+[
+    {
+        "fechaAlta": "2024-11-21",
+        "fechaFinalizacion": "2024-11-25",
+        "titulo": "entrevista",
+        "cliente": "Empresa Naval",
+        "contacto": "Juan Pérez",
+        "color": "rgba(122,0,0,0.5)"
+    },
+    {
+        "fechaAlta": "2024-11-01",
+        "fechaFinalizacion": "2024-11-05",
+        "titulo": "práctica empresa",
+        "cliente": "Empresa ABC",
+        "contacto": "María García",
+        "color": "rgba(0,0,155,0.5)"
+    },
+    {
+        "fechaAlta": "2024-11-21",
+        "fechaFinalizacion": "2024-11-27",
+        "titulo": "Desarrollo de API",
+        "cliente": "Empresa XYZ",
+        "contacto": "Juan Pérez",
+        "color": "rgba(0,155,0,0.5)"
+    },
+    {
+        "fechaAlta": "2024-11-01",
+        "fechaFinalizacion": "2024-11-28",
+        "titulo": "Despliegue en Cloud",
+        "cliente": "multinacional",
+        "contacto": "María García",
+        "color": "rgba(28,0,60,0.5)"
+    },
+    {
+        "fechaAlta": "2024-11-21",
+        "fechaFinalizacion": "2024-11-29",
+        "titulo": "prueba de orden",
+        "cliente": "multinacional",
+        "contacto": "María García",
+        "color": "rgba(55,44,55,0.5)"
+    },
+    {
+    "fechaAlta": "2024-11-15",
+    "fechaFinalizacion": "2024-11-30",
+    "titulo": "trabajo color",
+    "cliente": "panes",
+    "contacto": "María soila",
+    "color": "rgba(0,100,255,0.5)"
+},
+{
+    "fechaAlta": "2024-11-17",
+    "fechaFinalizacion": "2024-11-27",
+    "titulo": "comprobar color",
+    "cliente": "mirados",
+    "contacto": "María García",
+    "color": "rgba(255,2,125,0.5)"
+},
+{
+    "fechaAlta": "2024-11-21",
+    "fechaFinalizacion": "2024-11-29",
+    "titulo": "comprobar color",
+    "cliente": "mirados",
+    "contacto": "María García",
+    "color": "rgba(2,2,0,0.5)"
+}
+
+
+]
