@@ -66,6 +66,24 @@ td:nth-child(7) {
     width: 95%;
     font-size: 0.7rem;
     border-radius: 5px;
+    cursor: pointer;
+}
+
+.totalEventos{
+    width: 90%;
+    padding: 0;
+    position: absolute;
+    display: none;
+    background-color: rgba(255, 255, 255, 0.8);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    z-index:100;
+    margin-left: -4px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
+    transition: opacity 0.3s ease;
+  
+}
+.totalEventos p{
+    font-size: 0.8rem;
 }
 
 .divColor{
@@ -75,3 +93,4 @@ td:nth-child(7) {
    width: 95%;
    border-radius: 5px;
 }
+
