@@ -1,14 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>calendario</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <div class="calendario" id="calendario"></div>
-    
+    <div class="container">
+        <div id="meses" class="meses">
+            <button onclick="disminuirMes()">&#9664</button>
+            <span></span>
+            <button onclick="avanzarMes()">&#9654</button>
+        </div>
+        <div class="calendario" id="calendario"></div>
+    </div>
     <script src="script.js"></script>
 </body>
+
 </html>

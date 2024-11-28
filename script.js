@@ -1,12 +1,16 @@
 var fecha = new Date();
 var anio = fecha.getFullYear();
 var mes = fecha.getMonth();
+var meses;
+var mesActual=fecha.getMonth();
+
 function crearCalendario(data) {
 
     let diasSemana = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"];
     let calendario = document.getElementById("calendario");
     let tabla = document.createElement("table");
-    //tabla.innerHTML="";
+    tabla.innerHTML="";
+    calendario.innerHTML="";
     let fila = document.createElement("tr");
     for (let i = 0; i < diasSemana.length; i++) {
         let head = document.createElement("th");
@@ -17,7 +21,6 @@ function crearCalendario(data) {
     //rellenando diasSemana
     let primerDia = new Date(anio, mes, 1).getDay();
     let totalDias = new Date(anio, mes + 1, 0).getDate();
-
     //evitamos que salga -1
     if (primerDia === 0) {
         primerDia = 7;
@@ -48,28 +51,36 @@ function crearCalendario(data) {
         if (dia == new Date().getDate()) {
             divNros.style.color = "#ff6f61";
         }
-
         //color a fin de semana
         let finde = filas.children.length;
         if (finde === 0 || finde === 6) {
-            td.style.background = "#ffebeb";
+            td.style.background = "#fde2e2";
         }
     }
     if (filas.children.length > 0) {
         tabla.appendChild(filas);
     }
+    //celdas vacias en la ultima fila
+    let ultimoDia= new Date(anio, mes+1, 0).getDay();
+    let celdasFaltantes=7-ultimoDia;
+    for (let i = 0; i < celdasFaltantes; i++) {
+        let td=document.createElement("td");
+        filas.appendChild(td);
+    }
+    tabla.appendChild(filas);
 
     calendario.appendChild(tabla);
     //console.log(primerDia);
 }
-
 //creamos fetch para leer el archivo .json
-
 document.addEventListener("DOMContentLoaded", function () {
     fetch("eventos.json").then(response => response.json()).then(data => {
         crearCalendario(data);
-        //console.log(data);
     })
+        meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+        mesActual = meses[mes];
+        let divMeses = document.querySelector("#meses span");
+        divMeses.textContent = mesActual+" - " + anio;
 })
 
 //creando funcion para los eventos
@@ -85,7 +96,7 @@ function nodoEventos(dia, data) {
         let divcolor = document.createElement("div");
         divcolor.classList.add("divcolor");
         divcolor.style.backgroundColor = data[i].color;
-      
+
         //comparamos fecha-calendario con fecha-evento,  solo fechas(sin horas) muestra detalles (primer dia evento)
         if (fecha.toDateString() == new Date(fechaInicio).toDateString()) {
             let divtitEven = document.createElement("div");
@@ -106,32 +117,32 @@ function nodoEventos(dia, data) {
             inicio.textContent = `Inicio: ${data[i].fechaAlta}`;
             totalEventos.appendChild(inicio);
             divtitEven.appendChild(totalEventos);
-           
-            let fin=document.createElement("p");
+
+            let fin = document.createElement("p");
             fin.style.backgroundColor = data[i].color;
             fin.textContent = `Fin: ${data[i].fechaFinalizacion}`;
             totalEventos.appendChild(fin);
 
-            let cliente=document.createElement("p");
+            let cliente = document.createElement("p");
             cliente.textContent = `Cliente: ${data[i].cliente}`;
             totalEventos.appendChild(cliente);
 
-            let contacto=document.createElement("p");
+            let contacto = document.createElement("p");
             contacto.textContent = `contacto: ${data[i].contacto}`;
             totalEventos.appendChild(contacto);
 
             divTitulos.appendChild(divtitEven);
 
-                //aplicamos evento click en h2
-             h2.addEventListener("click", function () {
-                 if (!totalEventos.style.display || totalEventos.style.display === "none") {
-                     totalEventos.style.display = "block"; 
-                     
-                 } else {
-                     totalEventos.style.display = "none"; 
-                 }
-             });
-            
+            //aplicamos evento click en h2
+            h2.addEventListener("click", function () {
+                if (!totalEventos.style.display || totalEventos.style.display === "none") {
+                    totalEventos.style.display = "block";
+
+                } else {
+                    totalEventos.style.display = "none";
+                }
+            });
+
             // document.addEventListener("click", function (e) {
             //     if(!e.target.matches(".titulo")){
             //         totalEventos.style.display="none";
@@ -140,10 +151,10 @@ function nodoEventos(dia, data) {
             //     }
             // });
             nodos.push(divTitulos);
-            
+
         }
         //fechaInicio y fechaFin
-        else if (fecha.getTime() > new Date(fechaInicio).getTime() && fecha.getTime() <= new Date(fechaFin).getTime()) {
+        else if (fecha.getTime() > new Date(fechaInicio).getTime() && fecha.getTime() <= new Date(fechaFin).getTime() && fecha.getDay() !== 0 && fecha.getDay() !== 6) {
             let divColor = document.createElement("div");
             divColor.classList.add("divColor");
             divColor.style.backgroundColor = data[i].color;
@@ -152,5 +163,33 @@ function nodoEventos(dia, data) {
         }
     }
     return nodos;
+}
 
+//aumentar mes
+function avanzarMes() {
+    mes += 1;
+    if (mes > 11) {
+        mes = 0;
+        anio += 1;
+    }
+     mesActual = meses[mes];
+    let divMeses = document.querySelector("#meses span");
+    divMeses.textContent = mesActual+" - " + anio;
+    fetch("eventos.json").then(response => response.json()).then(data => {
+        crearCalendario(data);
+    });
+}
+//disminuir mes
+function disminuirMes() {
+    mes -= 1;
+    if (mes < 0) {
+        mes = 11;
+        anio -= 1;
+    }
+ mesActual = meses[mes];
+    let divMeses = document.querySelector("#meses span");
+    divMeses.textContent = mesActual+" - " + anio;
+    fetch("eventos.json").then(response => response.json()).then(data => {
+        crearCalendario(data);
+    });
 }

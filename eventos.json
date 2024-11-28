@@ -2,67 +2,66 @@
     {
         "fechaAlta": "2024-11-21",
         "fechaFinalizacion": "2024-11-25",
-        "titulo": "entrevista",
+        "titulo": "PRACTICA EMPRESA",
         "cliente": "Empresa Naval",
         "contacto": "Juan Pérez",
-        "color": "rgba(122,0,0,0.5)"
+        "color": "rgba(255, 0, 0, 0.3)"
     },
     {
         "fechaAlta": "2024-11-01",
         "fechaFinalizacion": "2024-11-05",
-        "titulo": "práctica empresa",
+        "titulo": "DESPACHO MERCA",
         "cliente": "Empresa ABC",
         "contacto": "María García",
-        "color": "rgba(0,0,155,0.5)"
+        "color": "rgba(0, 255, 0, 0.3)"
+
     },
     {
         "fechaAlta": "2024-11-21",
         "fechaFinalizacion": "2024-11-27",
-        "titulo": "Desarrollo de API",
+        "titulo": "DESARROLLO API",
         "cliente": "Empresa XYZ",
         "contacto": "Juan Pérez",
-        "color": "rgba(0,155,0,0.5)"
+        "color": "rgba(0, 0, 255, 0.3)"
     },
     {
         "fechaAlta": "2024-11-01",
         "fechaFinalizacion": "2024-11-28",
-        "titulo": "Despliegue en Cloud",
+        "titulo": "DESPLIEGUE EN CLOUD",
         "cliente": "multinacional",
         "contacto": "María García",
-        "color": "rgba(28,0,60,0.5)"
+        "color": "rgba(255, 165, 0, 0.3)"
     },
     {
         "fechaAlta": "2024-11-21",
         "fechaFinalizacion": "2024-11-29",
-        "titulo": "prueba de orden",
+        "titulo": "PRUEBA DE ORDEN",
         "cliente": "multinacional",
         "contacto": "María García",
-        "color": "rgba(55,44,55,0.5)"
+        "color": "rgba(128, 0, 128, 0.3)"
     },
     {
-    "fechaAlta": "2024-11-15",
-    "fechaFinalizacion": "2024-11-30",
-    "titulo": "trabajo color",
-    "cliente": "panes",
-    "contacto": "María soila",
-    "color": "rgba(0,100,255,0.5)"
-},
-{
-    "fechaAlta": "2024-11-17",
-    "fechaFinalizacion": "2024-11-27",
-    "titulo": "comprobar color",
-    "cliente": "mirados",
-    "contacto": "María García",
-    "color": "rgba(255,2,125,0.5)"
-},
-{
-    "fechaAlta": "2024-11-21",
-    "fechaFinalizacion": "2024-11-29",
-    "titulo": "comprobar color",
-    "cliente": "mirados",
-    "contacto": "María García",
-    "color": "rgba(2,2,0,0.5)"
-}
-
-
+        "fechaAlta": "2024-11-15",
+        "fechaFinalizacion": "2024-11-30",
+        "titulo": "TRABAJO DE COLOR",
+        "cliente": "panes",
+        "contacto": "María soila",
+        "color": "rgba(0, 255, 255, 0.3)"
+    },
+    {
+        "fechaAlta": "2024-11-18",
+        "fechaFinalizacion": "2024-11-27",
+        "titulo": "MATIZ COLOR",
+        "cliente": "mirados",
+        "contacto": "María García",
+        "color": "rgba(0,2,125,0.3)"
+    },
+    {
+        "fechaAlta": "2024-11-21",
+        "fechaFinalizacion": "2024-11-29",
+        "titulo": "OPERACIONES",
+        "cliente": "mirados",
+        "contacto": "María García",
+        "color": "rgba(2,2,0,0.3)"
+    }
 ]

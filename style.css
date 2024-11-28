@@ -5,8 +5,14 @@
 }
 
 body {
-    background-color: #cccccc;
+    background-color: #bfb9b9;
     font-family: 'Roboto', sans-serif;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .calendario {
@@ -18,13 +24,14 @@ table {
     border-collapse: collapse;
     width: 100%;
     table-layout: fixed;
-    background-color: #ffffff;
+    background-color: #d8d3d3;
+    border: 1.7px solid #8f8e8e;
 }
 
 th {
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Arial Narrow";
     background-color: #4a90e2;
-    border: #cccccc 1px solid;
+    border: #8f8e8e 1px solid;
     height: 2rem;
     color: #ffffff;
 }
@@ -32,12 +39,13 @@ th {
 td {
     position: relative;
     font-family: 'Roboto', sans-serif;
-    border: #cccccc 1px solid;
+    border: #484849 1px solid;
     text-align: center;
     height: 6rem;
     color: #333333;
 }
-.divNros{
+
+.divNros {
     width: 1.2rem;
     background-color: #e7e7ea;
     border-radius: 6px;
@@ -49,48 +57,289 @@ td:nth-child(6),
 /* Sábado */
 td:nth-child(7) {
     /* Domingo */
-    background-color: #ffebeb;
+    background-color: #fde2e2;
     /* Fondo coral claro */
-    color: #ff6f61;
+    color: #f97c70;
     /* Texto coral */
 }
-.divTitulos{
+
+.divTitulos {
     padding: 12px;
     height: 100%;
-   display: flex;
-   flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
-.titulo{  
+.titulo {
     margin: 3px auto;
-    width: 95%;
+    width: auto;
     font-size: 0.7rem;
     border-radius: 5px;
     cursor: pointer;
+    color: #291515;
+    font-weight: 350;
+    font-family: Arial, sans-serif;
 }
 
-.totalEventos{
+.totalEventos {
     width: 90%;
     padding: 0;
     position: absolute;
     display: none;
     background-color: rgba(255, 255, 255, 0.8);
     transition: opacity 0.8s ease, transform 0.8s ease;
-    z-index:100;
+    z-index: 100;
     margin-left: -4px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
     transition: opacity 0.3s ease;
-  
 }
-.totalEventos p{
+
+.totalEventos p {
     font-size: 0.8rem;
 }
 
-.divColor{
+.divColor {
     padding: 0;
-    margin:3px auto;
-   height: 13px;
-   width: 95%;
-   border-radius: 5px;
+    margin: 3px auto;
+    height: 13px;
+    width: 95%;
+    border-radius: 5px;
 }
 
+.meses {
+
+    margin: 10px auto;
+}
+
+@media (max-width:1000px) {
+
+    .calendario {
+        width: 100%;
+    }
+
+    .calendario {
+        width: 768px;
+    }
+}
+
+@media (max-width:768px) {
+    .container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .calendario {
+        width: 600px;
+    }
+
+    .meses {
+        margin: 10px auto;
+    }
+
+    .divTitulos {
+        padding: 8px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .titulo {
+        margin: 3px auto;
+        width: 100%;
+        font-size: 0.6rem;
+        border-radius: 5px;
+        cursor: pointer;
+        color: #291515;
+        font-weight: 350;
+        font-family: Arial, sans-serif;
+    }
+}
+
+@media (max-width:600px) {
+    .calendario {
+        width: 100%;
+    }
+
+    .meses {
+        margin: 10px auto;
+    }
+
+    .divNros {
+        width: 1.2rem;
+        font-size: 0.7rem;
+        background-color: #e7e7ea;
+        border-radius: 6px;
+        position: absolute;
+        top: 0;
+    }
+
+    .divTitulos {
+        padding: 8px 2px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .titulo {
+        margin: 3px auto;
+        width: 100%;
+        font-size: 0.54rem;
+        border-radius: 5px;
+        cursor: pointer;
+        color: #291515;
+        font-weight: 350;
+        font-family: Arial, sans-serif;
+    }
+
+    .totalEventos {
+        width: 5rem;
+        padding: 0;
+        position: absolute;
+        display: none;
+        background-color: rgba(255, 255, 255, 0.8);
+        z-index: 100;
+        margin-left: -9px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
+        transition: opacity 0.3s ease;
+    }
+
+    .totalEventos p {
+        font-size: 0.6rem;
+    }
+}
+
+@media (max-width:450px) {
+    th {
+        font-size: 0.8rem;
+        font-family: "Arial Narrow";
+        background-color: #4a90e2;
+        border: #8f8e8e 1px solid;
+        height: 1.5rem;
+        color: #ffffff;
+    }
+
+    .calendario {
+        width: 100%;
+    }
+
+    .meses {
+        margin: 10px auto;
+    }
+
+    .divNros {
+        width: 1.2rem;
+        font-size: 0.7rem;
+        background-color: #e7e7ea;
+        border-radius: 6px;
+        position: absolute;
+        top: 0;
+    }
+
+    .divTitulos {
+        padding: 8px 2px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .titulo {
+        margin: 3px auto;
+        width: 100%;
+        font-size: 0.5rem;
+        border-radius: 5px;
+        cursor: pointer;
+        color: #291515;
+        font-weight: 350;
+        font-family: Arial, sans-serif;
+    }
+
+    .divColor {
+        padding: 0;
+        margin: 3px auto;
+        height: 8px;
+        width: 95%;
+        border-radius: 5px;
+    }
+
+    .totalEventos {
+        width: 5rem;
+        padding: 0;
+        position: absolute;
+        display: none;
+        background-color: rgba(255, 255, 255, 0.8);
+        z-index: 100;
+        margin-left: -9px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
+        transition: opacity 0.3s ease;
+    }
+
+    .totalEventos p {
+        font-size: 0.6rem;
+    }
+}
+
+@media (max-width:400px) {
+    .calendario {
+        width: 100%;
+    }
+
+    th {
+        font-size: 0.7rem;
+        
+    }
+
+    .meses {
+        margin: 6px auto;
+    }
+
+    .divNros {
+        width: 0.9rem;
+        font-size: 0.6rem;
+        
+    }
+
+    .divTitulos {
+        padding: 8px 2px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        word-wrap: break-word;
+    }
+
+    .titulo {
+        margin: 3px auto;
+        width: 100%;
+        font-size: 0.5rem;
+        border-radius: 5px;
+        cursor: pointer;
+        color: #291515;
+        font-weight: 350;
+        font-family: Arial, sans-serif;
+
+    }
+
+    .divColor {
+        padding: 0;
+        margin: 3px auto;
+        height: 8px;
+        width: 95%;
+        border-radius: 5px;
+    }
+
+    .totalEventos {
+        width: 5rem;
+        padding: 0;
+        position: absolute;
+        display: none;
+        background-color: rgba(255, 255, 255, 0.9);
+        z-index: 100;
+        margin-left: -9px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
+        transition: opacity 0.3s ease;
+    }
+
+    .totalEventos p {
+        font-size: 0.6rem;
+    }
+}
