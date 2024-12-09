@@ -2,24 +2,56 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>calendario</title>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>calendario</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script> 
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <div class="container">
-        <div id="meses" class="meses">
-            <button onclick="disminuirMes()">&#9664</button>
-            <span></span>
-            <button onclick="avanzarMes()">&#9654</button>
-        </div>
-        <div class="calendario" id="calendario"></div>
+  <div class="caja">
+    <div id="meses" class="meses">
+      <button onclick="disminuirMes()">&#9664</button>
+      <span></span>
+      <button onclick="avanzarMes()">&#9654</button>
     </div>
-    <script src="script.js"></script>
+    <div class="calendario" id="calendario"></div>
+  </div>
+  <div class="popup">
+    <div class="container">
+      <form id="formulario">
+        <label for="titulo" class="lb">Título</label>
+        <input type="text" class="inp"  name="titulo" id="titulo" required >
+        
+
+        <label for="alta" class="lb">Fecha alta</label>
+        <input type="date" class="inp" name="alta" id="alta" required>
+
+        <label for="baja" class="lb">fecha finalización</label>
+        <input type="date" class="inp" name="baja" id="baja" required>
+
+        <label for="cliente" class="lb">Cliente</label>
+        <input type="text" class="inp" name="cliente" id="cliente" required>
+
+        <label for="contacto" class="lb">Contacto</label>
+        <input type="text" class="inp" name="contacto" id="contacto" required>
+
+        <label for="color" class="lb">Color</label>
+        <input type="color" class="inp-color" name="color" id="color" required>
+        
+        <button type="submit" class="formEnv">Enviar</button>
+      </form>
+      <div><span onclick="ocultar()">x</span></div>
+    </div>
+  </div>
+  <div class="mostrar">
+    <button onclick="mostrar()">Crear Evento</button>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 
 </html>

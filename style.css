@@ -3,17 +3,154 @@
     padding: 0;
     box-sizing: border-box;
 }
-
 body {
-    background-color: #bfb9b9;
+    background: #bdc3c7;
+    background: linear-gradient(to left, #55616d, #bdc3c7);
     font-family: 'Roboto', sans-serif;
+} 
+
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 10;
+    opacity: 0;
+    /* Comienza invisible */
+    visibility: hidden;
+    /* Oculto pero ocupa espacio */
+    transition: opacity 0.9s ease, transform 0.9s ease;
+    pointer-events: none;
 }
 
-.container {
+.popup.show {
+    opacity: 1; 
+    visibility: visible;
+}
+
+.caja {
     width: 100%;
     display: flex;
     flex-direction: column;
 }
+
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 370px;
+    margin: 10px auto;
+    border-radius: 5px;
+    background-color: #d8d3d3;
+    padding: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.7);
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.9s ease, transform 0.9s ease;
+}
+.container.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+form {
+    height: 300px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container div span {
+    position: absolute;
+    top: 3px;
+    right: 6px;
+    color: white;
+    width: 13px;
+    text-align: center;
+    background-color: #fc0000;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.container form input{
+    text-align: center;
+    width: 95%;
+    padding: 3px;
+    border: 1px solid #ddd;
+    border-radius:  8px;
+    font-size: 1rem;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.container form input:focus {
+    outline: none;
+    border: 1px solid #4a90e2;
+    box-shadow: 0 0 5px rgba(2, 46, 107, 0.5);
+}
+
+.container label {
+    margin-top: 8px;
+    text-align: center;
+    display: block;
+    width: 95%; 
+    color: #333;
+    border-radius: 3px;
+}
+
+.container button {
+    width: 95%;
+    padding: 3px;
+    border: none;
+    font-size: 1rem;
+    margin-top: 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #2196F3;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.container button:hover {
+    background-color: #1577cd;
+    border: none;
+    color: #ffffff;
+    transform: scale(1.05);
+}
+
+.mostrar {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.inp-color {
+    border: none;
+    padding: 3px;
+    cursor: pointer;
+}
+.mostrar button{
+    padding: 0.8rem 1.5rem;
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin: 1rem auto;
+   
+}
+.mostrar button:hover {
+    background-color: #1e88e5;
+    transform: scale(1.05);
+}
+
 
 .calendario {
     width: 1000px;
@@ -46,9 +183,10 @@ td {
 }
 
 .divNros {
+
     width: 1.2rem;
     background-color: #e7e7ea;
-    border-radius: 6px;
+    border-radius: 5px;
     position: absolute;
     top: 0;
 }
@@ -73,11 +211,11 @@ td:nth-child(7) {
 .titulo {
     margin: 3px auto;
     width: auto;
-    font-size: 0.7rem;
+    font-size: 0.9rem;
     border-radius: 5px;
     cursor: pointer;
     color: #291515;
-    font-weight: 350;
+    font-weight: 500;
     font-family: Arial, sans-serif;
 }
 
@@ -105,6 +243,19 @@ td:nth-child(7) {
     width: 95%;
     border-radius: 5px;
 }
+button{
+    cursor: 
+    border none;
+    padding: 3px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover{
+    background-color:#55616d;
+    color: white;
+    transform: scale(0.95);
+}
 
 .meses {
 
@@ -112,18 +263,14 @@ td:nth-child(7) {
 }
 
 @media (max-width:1000px) {
-
-    .calendario {
-        width: 100%;
-    }
-
     .calendario {
         width: 768px;
+        transition: width 0.5s ease, padding 0.5s ease;
     }
 }
 
 @media (max-width:768px) {
-    .container {
+    .caja {
         width: 100%;
         display: flex;
         flex-direction: column;
@@ -131,6 +278,7 @@ td:nth-child(7) {
 
     .calendario {
         width: 600px;
+        transition: width 0.5s ease, padding 0.5s ease;
     }
 
     .meses {
@@ -159,6 +307,7 @@ td:nth-child(7) {
 @media (max-width:600px) {
     .calendario {
         width: 100%;
+        transition: width 0.5s ease, padding 0.5s ease;
     }
 
     .meses {
@@ -221,6 +370,7 @@ td:nth-child(7) {
 
     .calendario {
         width: 100%;
+        transition: width 0.5s ease, padding 0.5s ease;
     }
 
     .meses {
@@ -282,11 +432,12 @@ td:nth-child(7) {
 @media (max-width:400px) {
     .calendario {
         width: 100%;
+        transition: width 0.5s ease, padding 0.5s ease;
     }
 
     th {
         font-size: 0.7rem;
-        
+
     }
 
     .meses {
@@ -296,7 +447,7 @@ td:nth-child(7) {
     .divNros {
         width: 0.9rem;
         font-size: 0.6rem;
-        
+
     }
 
     .divTitulos {
@@ -314,7 +465,7 @@ td:nth-child(7) {
         border-radius: 5px;
         cursor: pointer;
         color: #291515;
-        font-weight: 350;
+        font-weight: 600;
         font-family: Arial, sans-serif;
 
     }

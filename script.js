@@ -2,15 +2,15 @@ var fecha = new Date();
 var anio = fecha.getFullYear();
 var mes = fecha.getMonth();
 var meses;
-var mesActual=fecha.getMonth();
+var mesActual = fecha.getMonth();
 
 function crearCalendario(data) {
 
     let diasSemana = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"];
     let calendario = document.getElementById("calendario");
     let tabla = document.createElement("table");
-    tabla.innerHTML="";
-    calendario.innerHTML="";
+    tabla.innerHTML = "";
+    calendario.innerHTML = "";
     let fila = document.createElement("tr");
     for (let i = 0; i < diasSemana.length; i++) {
         let head = document.createElement("th");
@@ -61,10 +61,10 @@ function crearCalendario(data) {
         tabla.appendChild(filas);
     }
     //celdas vacias en la ultima fila
-    let ultimoDia= new Date(anio, mes+1, 0).getDay();
-    let celdasFaltantes=7-ultimoDia;
+    let ultimoDia = new Date(anio, mes + 1, 0).getDay();
+    let celdasFaltantes = 7 - ultimoDia;
     for (let i = 0; i < celdasFaltantes; i++) {
-        let td=document.createElement("td");
+        let td = document.createElement("td");
         filas.appendChild(td);
     }
     tabla.appendChild(filas);
@@ -77,10 +77,11 @@ document.addEventListener("DOMContentLoaded", function () {
     fetch("eventos.json").then(response => response.json()).then(data => {
         crearCalendario(data);
     })
-        meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
-        mesActual = meses[mes];
-        let divMeses = document.querySelector("#meses span");
-        divMeses.textContent = mesActual+" - " + anio;
+    meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+    mesActual = meses[mes];
+    let divMeses = document.querySelector("#meses span");
+    divMeses.textContent = mesActual + " - " + anio;
+
 })
 
 //creando funcion para los eventos
@@ -172,9 +173,9 @@ function avanzarMes() {
         mes = 0;
         anio += 1;
     }
-     mesActual = meses[mes];
+    mesActual = meses[mes];
     let divMeses = document.querySelector("#meses span");
-    divMeses.textContent = mesActual+" - " + anio;
+    divMeses.textContent = mesActual + " - " + anio;
     fetch("eventos.json").then(response => response.json()).then(data => {
         crearCalendario(data);
     });
@@ -186,10 +187,61 @@ function disminuirMes() {
         mes = 11;
         anio -= 1;
     }
- mesActual = meses[mes];
+    mesActual = meses[mes];
     let divMeses = document.querySelector("#meses span");
-    divMeses.textContent = mesActual+" - " + anio;
+    divMeses.textContent = mesActual + " - " + anio;
     fetch("eventos.json").then(response => response.json()).then(data => {
         crearCalendario(data);
     });
 }
+
+//ventana nodal
+function mostrar() {
+    //document.querySelector(".popup").style.display="block";
+    const popup = document.querySelector('.popup');
+    popup.classList.add('show'); // Aparece
+    popup.style.pointerEvents="auto";
+    setTimeout(() => {
+        document.getElementById("titulo").focus();
+        //ocultamos eventos
+        let ocultarDiv = document.querySelectorAll(".totalEventos");
+        ocultarDiv.forEach((divEven) => {
+            divEven.style.display = "none";
+        })
+    }, 100);
+
+}
+
+function ocultar() {
+    // document.querySelector(".popup").style.display="none";
+    const popup = document.querySelector('.popup');
+    popup.classList.remove('show'); // Desaparece
+    let valInput=document.querySelectorAll('.inp');
+    valInput.forEach(function(val){
+        val.value="";
+    })
+    popup.style.pointerEvents="none";
+
+    
+}
+//envio de formulario
+let formulario = document.getElementById("formulario");
+formulario.addEventListener("submit", function (e) {
+    e.preventDefault();
+    //console.log("click");
+    let datosForm = new FormData(formulario);
+    //(datosForm.get("cliente"));
+    fetch("eventos.php", {
+        method: "POST",
+        body: datosForm
+    }).then(response => {
+        // console.log(response);
+        return response.text();
+    }).then(data => {
+        alert(data);
+        location.reload();
+    }).catch(error => {
+        console.error('Error:', error);
+    });
+   
+})
