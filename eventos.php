@@ -1,4 +1,6 @@
 <?php
+header('Content-Type: application/json; charset=UTF-8');
+
 $archivo = "eventos.json";
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!empty($_POST["titulo"]) && !empty($_POST["alta"]) && !empty($_POST["baja"]) && !empty($_POST["cliente"]) && !empty($_POST["contacto"]) && !empty($_POST["color"])) {

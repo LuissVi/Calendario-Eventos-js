@@ -190,10 +190,6 @@ td {
 }
 
 .divNros {
-<<<<<<< HEAD
-=======
-
->>>>>>> feature-pruebas
     width: 1.2rem;
     background-color: #e7e7ea;
     border-radius: 5px;
@@ -211,61 +207,6 @@ td:nth-child(7) {
     /* Texto coral */
 }
 
-<<<<<<< HEAD
-.titulo {
-   position: absolute;
-    width: 98%;
-    font-size: 0.8rem;
-    margin-top: 1rem;
-    margin-bottom: 5px;
-    border-radius: 5px;
-    z-index: 100;
-}
-
-.divContenedorColores {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr;
-    /* Una sola columna */
-    grid-gap: 1px;
-    /* Espaciado entre los elementos */
-    position: relative;
-}
-
-.divcolor {
-    height: 10px;
-    width: 100%;
-    /* Ajusta el ancho de los divs */
-    border-radius: 5px;
-    position:relative;
-    
-}
-.div-eventos{
-    margin-top: 5px;
-    display: none;
-    position: absolute;
-    width: 100%;
-    
-}
-.titulo:hover + .div-eventos{
-    font-size: 0.7rem;
-    position: relative;
-   
-    width: 100%;
-    left: 0;
-    top: 0;
-    padding: 3px;
-    display: inline;
-   
-    background-color: rgba(255, 255, 255, 0.8);
-    transition: opacity 0.8s ease, transform 1s ease;
-    transform: translateY(-10px);
-    z-index:100;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
-}
-
-
-=======
 .divTitulos {
     padding: 12px;
     height: 100%;
@@ -559,4 +500,3 @@ button:hover{
         font-size: 0.6rem;
     }
 }
->>>>>>> feature-pruebas
