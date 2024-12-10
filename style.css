@@ -7,11 +7,154 @@
     padding: 0;
     box-sizing: border-box;
 }
-
 body {
-    background-color: #f4f4f9;
+    background: #bdc3c7;
+    background: linear-gradient(to left, #55616d, #bdc3c7);
     font-family: 'Roboto', sans-serif;
+} 
+
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 10;
+    opacity: 0;
+    /* Comienza invisible */
+    visibility: hidden;
+    /* Oculto pero ocupa espacio */
+    transition: opacity 0.9s ease, transform 0.9s ease;
+    pointer-events: none;
 }
+
+.popup.show {
+    opacity: 1; 
+    visibility: visible;
+}
+
+.caja {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 370px;
+    margin: 10px auto;
+    border-radius: 5px;
+    background-color: #d8d3d3;
+    padding: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.7);
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.9s ease, transform 0.9s ease;
+}
+.container.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+form {
+    height: 300px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container div span {
+    position: absolute;
+    top: 3px;
+    right: 6px;
+    color: white;
+    width: 13px;
+    text-align: center;
+    background-color: #fc0000;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.container form input{
+    text-align: center;
+    width: 95%;
+    padding: 3px;
+    border: 1px solid #ddd;
+    border-radius:  8px;
+    font-size: 1rem;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.container form input:focus {
+    outline: none;
+    border: 1px solid #4a90e2;
+    box-shadow: 0 0 5px rgba(2, 46, 107, 0.5);
+}
+
+.container label {
+    margin-top: 8px;
+    text-align: center;
+    display: block;
+    width: 95%; 
+    color: #333;
+    border-radius: 3px;
+}
+
+.container button {
+    width: 95%;
+    padding: 3px;
+    border: none;
+    font-size: 1rem;
+    margin-top: 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #2196F3;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.container button:hover {
+    background-color: #1577cd;
+    border: none;
+    color: #ffffff;
+    transform: scale(1.05);
+}
+
+.mostrar {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.inp-color {
+    border: none;
+    padding: 3px;
+    cursor: pointer;
+}
+.mostrar button{
+    padding: 0.8rem 1.5rem;
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin: 1rem auto;
+   
+}
+.mostrar button:hover {
+    background-color: #1e88e5;
+    transform: scale(1.05);
+}
+
 
 .calendario {
     width: 1000px;
@@ -23,13 +166,14 @@ table {
     width: 100%;
     border-collapse: collapse;
     table-layout: fixed;
-    background-color: #ffffff;
+    background-color: #d8d3d3;
+    border: 1.7px solid #8f8e8e;
 }
 
 th {
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Arial Narrow";
     background-color: #4a90e2;
-    border: #cccccc 1px solid;
+    border: #8f8e8e 1px solid;
     height: 2rem;
     color: #ffffff;
 }
@@ -38,7 +182,7 @@ td {
     
     position: relative;
     font-family: 'Roboto', sans-serif;
-    border: #cccccc 1px solid;
+    border: #484849 1px solid;
     text-align: center;
     height: 6rem;
     color: #333333;
@@ -46,9 +190,13 @@ td {
 }
 
 .divNros {
+<<<<<<< HEAD
+=======
+
+>>>>>>> feature-pruebas
     width: 1.2rem;
     background-color: #e7e7ea;
-    border-radius: 6px;
+    border-radius: 5px;
     position: absolute;
     top: 0;
 }
@@ -57,12 +205,13 @@ td:nth-child(6),
 /* Sábado */
 td:nth-child(7) {
     /* Domingo */
-    background-color: #ffebeb;
+    background-color: #fde2e2;
     /* Fondo coral claro */
-    color: #ff6f61;
+    color: #f97c70;
     /* Texto coral */
 }
 
+<<<<<<< HEAD
 .titulo {
    position: absolute;
     width: 98%;
@@ -116,3 +265,298 @@ td:nth-child(7) {
 }
 
 
+=======
+.divTitulos {
+    padding: 12px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.titulo {
+    margin: 3px auto;
+    width: auto;
+    font-size: 0.9rem;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #291515;
+    font-weight: 500;
+    font-family: Arial, sans-serif;
+}
+
+.totalEventos {
+    width: 90%;
+    padding: 0;
+    position: absolute;
+    display: none;
+    background-color: rgba(255, 255, 255, 0.8);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    z-index: 100;
+    margin-left: -4px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
+    transition: opacity 0.3s ease;
+}
+
+.totalEventos p {
+    font-size: 0.8rem;
+}
+
+.divColor {
+    padding: 0;
+    margin: 3px auto;
+    height: 13px;
+    width: 95%;
+    border-radius: 5px;
+}
+button{
+    cursor: 
+    border none;
+    padding: 3px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover{
+    background-color:#55616d;
+    color: white;
+    transform: scale(0.95);
+}
+
+.meses {
+
+    margin: 10px auto;
+}
+
+@media (max-width:1000px) {
+    .calendario {
+        width: 768px;
+        transition: width 0.5s ease, padding 0.5s ease;
+    }
+}
+
+@media (max-width:768px) {
+    .caja {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .calendario {
+        width: 600px;
+        transition: width 0.5s ease, padding 0.5s ease;
+    }
+
+    .meses {
+        margin: 10px auto;
+    }
+
+    .divTitulos {
+        padding: 8px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .titulo {
+        margin: 3px auto;
+        width: 100%;
+        font-size: 0.6rem;
+        border-radius: 5px;
+        cursor: pointer;
+        color: #291515;
+        font-weight: 350;
+        font-family: Arial, sans-serif;
+    }
+}
+
+@media (max-width:600px) {
+    .calendario {
+        width: 100%;
+        transition: width 0.5s ease, padding 0.5s ease;
+    }
+
+    .meses {
+        margin: 10px auto;
+    }
+
+    .divNros {
+        width: 1.2rem;
+        font-size: 0.7rem;
+        background-color: #e7e7ea;
+        border-radius: 6px;
+        position: absolute;
+        top: 0;
+    }
+
+    .divTitulos {
+        padding: 8px 2px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .titulo {
+        margin: 3px auto;
+        width: 100%;
+        font-size: 0.54rem;
+        border-radius: 5px;
+        cursor: pointer;
+        color: #291515;
+        font-weight: 350;
+        font-family: Arial, sans-serif;
+    }
+
+    .totalEventos {
+        width: 5rem;
+        padding: 0;
+        position: absolute;
+        display: none;
+        background-color: rgba(255, 255, 255, 0.8);
+        z-index: 100;
+        margin-left: -9px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
+        transition: opacity 0.3s ease;
+    }
+
+    .totalEventos p {
+        font-size: 0.6rem;
+    }
+}
+
+@media (max-width:450px) {
+    th {
+        font-size: 0.8rem;
+        font-family: "Arial Narrow";
+        background-color: #4a90e2;
+        border: #8f8e8e 1px solid;
+        height: 1.5rem;
+        color: #ffffff;
+    }
+
+    .calendario {
+        width: 100%;
+        transition: width 0.5s ease, padding 0.5s ease;
+    }
+
+    .meses {
+        margin: 10px auto;
+    }
+
+    .divNros {
+        width: 1.2rem;
+        font-size: 0.7rem;
+        background-color: #e7e7ea;
+        border-radius: 6px;
+        position: absolute;
+        top: 0;
+    }
+
+    .divTitulos {
+        padding: 8px 2px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .titulo {
+        margin: 3px auto;
+        width: 100%;
+        font-size: 0.5rem;
+        border-radius: 5px;
+        cursor: pointer;
+        color: #291515;
+        font-weight: 350;
+        font-family: Arial, sans-serif;
+    }
+
+    .divColor {
+        padding: 0;
+        margin: 3px auto;
+        height: 8px;
+        width: 95%;
+        border-radius: 5px;
+    }
+
+    .totalEventos {
+        width: 5rem;
+        padding: 0;
+        position: absolute;
+        display: none;
+        background-color: rgba(255, 255, 255, 0.8);
+        z-index: 100;
+        margin-left: -9px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
+        transition: opacity 0.3s ease;
+    }
+
+    .totalEventos p {
+        font-size: 0.6rem;
+    }
+}
+
+@media (max-width:400px) {
+    .calendario {
+        width: 100%;
+        transition: width 0.5s ease, padding 0.5s ease;
+    }
+
+    th {
+        font-size: 0.7rem;
+
+    }
+
+    .meses {
+        margin: 6px auto;
+    }
+
+    .divNros {
+        width: 0.9rem;
+        font-size: 0.6rem;
+
+    }
+
+    .divTitulos {
+        padding: 8px 2px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        word-wrap: break-word;
+    }
+
+    .titulo {
+        margin: 3px auto;
+        width: 100%;
+        font-size: 0.5rem;
+        border-radius: 5px;
+        cursor: pointer;
+        color: #291515;
+        font-weight: 600;
+        font-family: Arial, sans-serif;
+
+    }
+
+    .divColor {
+        padding: 0;
+        margin: 3px auto;
+        height: 8px;
+        width: 95%;
+        border-radius: 5px;
+    }
+
+    .totalEventos {
+        width: 5rem;
+        padding: 0;
+        position: absolute;
+        display: none;
+        background-color: rgba(255, 255, 255, 0.9);
+        z-index: 100;
+        margin-left: -9px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
+        transition: opacity 0.3s ease;
+    }
+
+    .totalEventos p {
+        font-size: 0.6rem;
+    }
+}
+>>>>>>> feature-pruebas
